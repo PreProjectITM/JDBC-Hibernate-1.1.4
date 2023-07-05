@@ -13,7 +13,7 @@ import java.util.List;
 public class UserDaoJDBCImpl implements UserDao {
 
     private static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, name TEXT NOT NULL, lastName TEXT NOT NULL, age INT NOT NULL);";
-    private static final String DROP_TABLE_SQL = "DROP TABLE users;";
+    private static final String DROP_TABLE_SQL = "DROP TABLE IF EXISTS users;";
     private static final String SAVE_USER_SQL = "INSERT INTO users (name, lastName, age) VALUES (?, ?, ?);";
     private static final String REMOVE_USER_SQL = "DELETE FROM users WHERE id = ?;";
     private static final String GET_ALL_USERS_SQL = "SELECT * FROM users;";
