@@ -20,7 +20,6 @@ public class UserDaoHibernateImpl implements UserDao {
 
     }
 
-
     @Override
     public void createUsersTable() {
         try(Session session = Util.getSessionFactory().openSession()) {
