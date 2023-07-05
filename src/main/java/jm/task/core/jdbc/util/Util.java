@@ -19,12 +19,10 @@ public final class Util {
 
     public static SessionFactory getSessionFactory(){
         if(sessionFactory == null) {
-            Properties properties = new Properties();
-            properties.put(Environment.URL, "jdbc:postgresql://localhost:5432/postgres");
-            properties.put(Environment.USER, "postgres");
-            properties.put(Environment.PASS, "admin");
-
-            Configuration configuration = new Configuration().addProperties(properties).addAnnotatedClass(User.class);
+            Configuration configuration = new Configuration().addAnnotatedClass(User.class);
+            configuration.setProperty("hibernate.connection.url",PropertiesUtil.get(URL_KEY));
+            configuration.setProperty("hibernate.connection.username", PropertiesUtil.get(USERNAME_KEY));
+            configuration.setProperty("hibernate.connection.password", PropertiesUtil.get(PASSWORD_KEY));
             try {
                 sessionFactory = configuration.buildSessionFactory();
 
