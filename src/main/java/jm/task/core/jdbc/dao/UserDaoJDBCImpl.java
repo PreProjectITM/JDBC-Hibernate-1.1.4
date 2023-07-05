@@ -24,82 +24,83 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void createUsersTable() {
-        try (Connection connection = Util.open();
-             PreparedStatement preparedStatement = connection.prepareStatement(CREATE_TABLE_SQL)) {
-
-            preparedStatement.execute();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try (Connection connection = Util.open();
+//             PreparedStatement preparedStatement = connection.prepareStatement(CREATE_TABLE_SQL)) {
+//
+//            preparedStatement.execute();
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void dropUsersTable() {
-        try (Connection connection = Util.open();
-             PreparedStatement preparedStatement = connection.prepareStatement(DROP_TABLE_SQL)) {
-
-            preparedStatement.execute();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try (Connection connection = Util.open();
+//             PreparedStatement preparedStatement = connection.prepareStatement(DROP_TABLE_SQL)) {
+//
+//            preparedStatement.execute();
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        try (Connection connection = Util.open();
-             PreparedStatement preparedStatement = connection.prepareStatement(SAVE_USER_SQL)) {
-
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, lastName);
-            preparedStatement.setLong(3, age);
-            preparedStatement.executeUpdate();
-            System.out.println("User с именем - " + name + " добавлен в базу данных");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try (Connection connection = Util.open();
+//             PreparedStatement preparedStatement = connection.prepareStatement(SAVE_USER_SQL)) {
+//
+//            preparedStatement.setString(1, name);
+//            preparedStatement.setString(2, lastName);
+//            preparedStatement.setLong(3, age);
+//            preparedStatement.executeUpdate();
+//            System.out.println("User с именем - " + name + " добавлен в базу данных");
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void removeUserById(long id) {
-        try (Connection connection = Util.open();
-             PreparedStatement preparedStatement = connection.prepareStatement(REMOVE_USER_SQL)) {
-
-            preparedStatement.setLong(1, id);
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try (Connection connection = Util.open();
+//             PreparedStatement preparedStatement = connection.prepareStatement(REMOVE_USER_SQL)) {
+//
+//            preparedStatement.setLong(1, id);
+//            preparedStatement.executeUpdate();
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
     public List<User> getAllUsers() {
-        List<User> usersList = null;
-        try (Connection connection = Util.open();
-             PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL_USERS_SQL)) {
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet!=null) {usersList = new ArrayList<>();}
-            while(resultSet.next()) {
-                User user = new User(resultSet.getString("name"), resultSet.getString("lastName"), resultSet.getByte("age"));
-                user.setId(resultSet.getLong("id"));
-                usersList.add(user);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return usersList;
+//        List<User> usersList = null;
+//        try (Connection connection = Util.open();
+//             PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL_USERS_SQL)) {
+//
+//            ResultSet resultSet = preparedStatement.executeQuery();
+//            if(resultSet!=null) {usersList = new ArrayList<>();}
+//            while(resultSet.next()) {
+//                User user = new User(resultSet.getString("name"), resultSet.getString("lastName"), resultSet.getByte("age"));
+//                user.setId(resultSet.getLong("id"));
+//                usersList.add(user);
+//            }
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return usersList;
+        return null;
     }
 
     public void cleanUsersTable() {
-        try (Connection connection = Util.open();
-             PreparedStatement preparedStatement = connection.prepareStatement(CLEAN_TABLE_SQL)) {
-
-            preparedStatement.execute();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try (Connection connection = Util.open();
+//             PreparedStatement preparedStatement = connection.prepareStatement(CLEAN_TABLE_SQL)) {
+//
+//            preparedStatement.execute();
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 }
